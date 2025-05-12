@@ -50,11 +50,10 @@ public class RequestRouteStats {
         Percentile percentileCalculator = new Percentile();
         percentileCalculator.setData(responseTimesArray);
 
-        // The evaluate method returns a double, so we cast to int as per original structure
-        stats.put("50_percentile", (int) percentileCalculator.evaluate(50.0));
-        stats.put("90_percentile", (int) percentileCalculator.evaluate(90.0));
-        stats.put("95_percentile", (int) percentileCalculator.evaluate(95.0));
-        stats.put("99_percentile", (int) percentileCalculator.evaluate(99.0));
+        stats.put("50_percentile", percentileCalculator.evaluate(50.0));
+        stats.put("90_percentile", percentileCalculator.evaluate(90.0));
+        stats.put("95_percentile", percentileCalculator.evaluate(95.0));
+        stats.put("99_percentile", percentileCalculator.evaluate(99.0));
 
         return stats;
     }
