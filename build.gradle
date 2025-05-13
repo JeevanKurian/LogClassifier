@@ -11,10 +11,18 @@ repositories {
 }
 
 dependencies {
-    testImplementation platform('org.junit:junit-bom:5.10.0')
-    testImplementation 'org.junit.jupiter:junit-jupiter'
     implementation 'com.google.code.gson:gson:2.10.1'
     implementation 'org.apache.commons:commons-math3:3.6.1'
+
+    // JUnit 5 Jupiter API and Engine
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter-api'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+    testImplementation 'org.junit.jupiter:junit-jupiter-params'
+
+    // Mockito Core
+    testImplementation 'org.mockito:mockito-core:5.11.0' // Use latest version
+    testImplementation 'org.mockito:mockito-junit-jupiter:5.11.0'
 }
 application {
     // Define the main class for the application

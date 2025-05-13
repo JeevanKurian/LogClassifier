@@ -47,7 +47,7 @@ public class RequestRouteStats {
                 .toArray();
 
         // The default constructor uses an estimation type R-7 (Excel's PERCENTILE.INC method)
-        Percentile percentileCalculator = new Percentile();
+        Percentile percentileCalculator = new Percentile().withEstimationType(Percentile.EstimationType.R_7);
         percentileCalculator.setData(responseTimesArray);
 
         stats.put("50_percentile", percentileCalculator.evaluate(50.0));
